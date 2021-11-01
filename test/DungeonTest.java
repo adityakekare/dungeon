@@ -12,9 +12,9 @@ public class DungeonTest {
 //    Treasure treasure = Treasure.DIAMOND;
 //    System.out.println(treasure.toString());
 //
-    Dungeon dungeon = new Dungeon(7, 7, 16, false,
+    Dungeon dungeon = new Dungeon(4, 4, 0, true,
             40, "Aditya");
-    dungeon.toString();
+    System.out.println(dungeon.toString());
 //    System.out.println(dungeon.toString());
 
 //    Path path1 = new Path(1, 2);

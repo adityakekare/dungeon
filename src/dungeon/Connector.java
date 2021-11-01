@@ -63,4 +63,23 @@ public class Connector {
 
     return count;
   }
+
+  @Override
+  public String toString() {
+    String result = "";
+    if(this.north){
+      result += "North";
+    }
+    if(this.south){
+      result += ", South";
+    }
+    if(this.east){
+      result += ", East";
+    }
+    if(this.west){
+      result += ", West";
+    }
+
+    return result;
+  }
 }

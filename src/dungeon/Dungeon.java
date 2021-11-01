@@ -27,19 +27,20 @@ public class Dungeon implements GameMap{
   private final int end;
   private final Player player;
 
-  public Dungeon(int height, int width, int degreeOfInterconnectivity, boolean isWrapping, int percentTreasure, String playerName) {
+  public Dungeon(int height, int width, int degreeOfInterconnectivity, boolean isWrapping,
+                 int percentTreasure, String playerName) {
     this.height = height;
     this.width = width;
     this.degreeOfInterconnectivity = degreeOfInterconnectivity;
     this.isWrapping = isWrapping;
     this.percentTreasure = percentTreasure;
-    this.player = new PlayerImpl(playerName);
     this.paths = generatePaths();
     this.grid = generateCaves(paths);
     int[] startEnd = BfsGraph.getShortestPath(this.grid,
             this.height,  this.width, this.paths);
     this.start = startEnd[0];
     this.end = startEnd[1];
+    this.player = new PlayerImpl(playerName, this.start);
     this.addTreasures();
   }
 
@@ -181,13 +182,12 @@ public class Dungeon implements GameMap{
     while(i < treasureCaveNum){
 //      System.out.println("wheew " + i);
       int randomId = random.ints(0, numNodes).findAny().getAsInt();
-      int row = (randomId - (randomId % width))/ width;
-      int col = randomId % width;
-      if(this.grid[row][col].isTunnel()){
+      Position nodePos = getPosition(randomId);
+      if(this.grid[nodePos.getX()][nodePos.getY()].isTunnel()){
         continue;
       }
 //      System.out.println(randomId + " " + treasureMap.get(i % 3));
-      Cave chosenCave = ((Cave) this.grid[row][col]);
+      Cave chosenCave = ((Cave) this.grid[nodePos.getX()][nodePos.getY()]);
       List<Treasure> treasures = chosenCave.getTreasures();
       treasures.add(treasureMap.get(i % 3));
       chosenCave.setTreasures(treasures);
@@ -195,15 +195,166 @@ public class Dungeon implements GameMap{
     }
   }
 
+  private Position getPosition(int id){
+    int row = (id - (id % width))/ width;
+    int col = id % width;
+
+    return new Position(row, col);
+  }
+
+
   @Override
   public String toString(){
-    String result = "";
-    for(int i = 0; i < height; i++){
-      for(int j = 0; j < width; j++){
-        System.out.println(grid[i][j].toString());
-      }
-//      result.append("\n");
+    Position playerLocation = getPosition(this.player.getLocation());
+    Position start = getPosition(this.start);
+    Position end = getPosition(this.end);
+    String result = "\n";
+    String nodeString = "";
+
+      for(int i = 0; i < height; i++){
+        for(int k = 0; k < 3; k++){
+          for(int j = 0; j < width; j++){
+            if(k == 0){
+              if(grid[i][j].getRoutes().isNorth()){
+                result += " | ";
+              }
+              else{
+                result += "   ";
+              }
+            }
+            else if(k == 1){
+              if(i == playerLocation.getX() && j == playerLocation.getY()){
+                nodeString = "P";
+              }
+              else if(i == start.getX() && j == start.getY()){
+                nodeString = "S";
+              }
+              else if(i == end.getX() && j == end.getY()){
+                nodeString = "E";
+              }
+              else if(grid[i][j].isTunnel()){
+                nodeString = "T";
+              }
+              else{
+                nodeString = "C";
+              }
+
+              if(grid[i][j].getRoutes().isWest() && grid[i][j].getRoutes().isEast()){
+                result += String.format("-" + nodeString + "-");
+              }
+              else if(!grid[i][j].getRoutes().isWest() && grid[i][j].getRoutes().isEast()){
+                result += String.format(" " + nodeString + "-");
+              }
+              else if(grid[i][j].getRoutes().isWest() && !grid[i][j].getRoutes().isEast()){
+                result += String.format("-" + nodeString + " ");
+              }
+              else{
+                result += String.format(" " + nodeString + " ");
+              }
+            }
+            else{
+              if(grid[i][j].getRoutes().isSouth()){
+                result += " | ";
+              }
+              else{
+                result += "   ";
+              }
+            }
+          }
+          result += "\n";
+        }
     }
-    return result.toString();
+    return result;
+  }
+
+  @Override
+  public Connector getPossibleMoves() {
+    Position playerLocation = getPosition(this.player.getLocation());
+    return this.grid[playerLocation.getX()][playerLocation.getY()].getRoutes();
+  }
+
+  private void collectTreasureForPlayer(){
+    Position position = getPosition(this.player.getLocation());
+    Location currLocation = this.grid[position.getX()][position.getY()];
+
+    if(!currLocation.isTunnel()){
+      for(Treasure treasure: ((Cave) currLocation).getTreasures()){
+        this.player.pickTreasure(treasure);
+      }
+    }
+  }
+
+  @Override
+  public void playerMoveNorth() {
+      int north = getNorth(this.player.getLocation());
+      this.player.move(north);
+      collectTreasureForPlayer();
+  }
+
+  private int getNorth(int id){
+    if(id < width){
+      return (width * (height - 1)) + id % width;
+    }
+    else{
+      return id - width;
+    }
+  }
+
+  @Override
+  public void playerMoveSouth() {
+    int south = getSouth(this.player.getLocation());
+    this.player.move(south);
+    collectTreasureForPlayer();
+  }
+
+  private int getSouth(int id){
+    if(id >= (width * (height - 1))){
+      return id % width;
+    }
+    else{
+      return id + width;
+    }
+  }
+
+  @Override
+  public void playerMoveEast() {
+    int east = getEast(this.player.getLocation());
+    this.player.move(east);
+    collectTreasureForPlayer();
+  }
+
+  private int getEast(int id){
+    if(id % width == (width - 1)){
+      return (id - (width - 1));
+    }
+    else{
+      return id + 1;
+    }
+  }
+
+  @Override
+  public void playerMoveWest() {
+    int west = getWest(this.player.getLocation());
+    this.player.move(west);
+    collectTreasureForPlayer();
+  }
+
+  @Override
+  public String getPlayerStatus() {
+    return this.player.toString();
+  }
+
+  @Override
+  public boolean checkIfPlayerAtEndLocation() {
+    return this.player.getLocation() == this.end;
+  }
+
+  private int getWest(int id){
+    if(id % width == 0){
+      return (id + (width - 1));
+    }
+    else{
+      return id - 1;
+    }
   }
 }

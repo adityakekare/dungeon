@@ -58,8 +58,6 @@ public final class BfsGraph {
     int[] distance = new int[numVertices];
 
     if (!(BreadthFirst(adjacencyList, src, dest, numVertices, previous, distance))) {
-      System.out.println("Given source and destination" +
-              "are not connected");
       return 0;
     }
 
@@ -69,13 +67,6 @@ public final class BfsGraph {
     while (previous[crawl] != -1) {
       path.add(previous[crawl]);
       crawl = previous[crawl];
-    }
-
-    System.out.println("Shortest path length is: " + distance[dest]);
-
-    System.out.println("Path is ::");
-    for (int i = path.size() - 1; i >= 0; i--) {
-      System.out.print(path.get(i) + " ");
     }
 
     return distance[dest];

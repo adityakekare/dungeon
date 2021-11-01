@@ -3,20 +3,31 @@ package dungeon;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cave {
+public class Cave extends AbstractLocation {
 
-  private final int id;
-  private final Connector routes;
-  private final List<Treasure> treasures;
+  private List<Treasure> treasures;
 
   public Cave(int id, Connector routes) {
-    this.id = id;
-    this.routes = routes;
+    super(id, routes);
     this.treasures = new ArrayList<>();
   }
 
   @Override
+  public boolean isTunnel() {
+    return false;
+  }
+
+  public void setTreasures(List<Treasure> treasures) {
+    this.treasures = treasures;
+  }
+
+  public List<Treasure> getTreasures() {
+    return new ArrayList<>(this.treasures);
+  }
+
+  @Override
   public String toString() {
-    return "[" + id + "]";
+    return String.format("Location id: " + this.getId() + " Location type: Cave: "
+    + this.getTreasures());
   }
 }

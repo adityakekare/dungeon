@@ -5,11 +5,14 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+import dungeon.Location;
 import dungeon.Path;
 
-public final class DjikstraGraph {
+public final class BfsGraph {
 
-  public static int[] getShortestPath(int numNodes, List<Path> paths){
+  public static int[] getShortestPath(Location[][] dungeon, int height,
+                                      int width, List<Path> paths){
+    int numNodes = height * width;
     ArrayList<ArrayList<Integer>> adjacencyList = new ArrayList<ArrayList<Integer>>(numNodes);
     for (int i = 0; i < numNodes; i++) {
       adjacencyList.add(new ArrayList<Integer>());
@@ -28,6 +31,11 @@ public final class DjikstraGraph {
     while(shortestDistance < 5){
       randomStart = random.ints(0, numNodes).findAny().getAsInt();
       randomEnd = random.ints(0, numNodes).findAny().getAsInt();
+
+      if(!checkIfTunnel(dungeon, height, width, randomStart) ||
+              !checkIfTunnel(dungeon, height, width, randomEnd)){
+        continue;
+      }
 
       shortestDistance = getShortestDistance(adjacencyList, randomStart, randomEnd, numNodes);
     }
@@ -105,5 +113,13 @@ public final class DjikstraGraph {
       }
     }
     return false;
+  }
+
+  private static boolean checkIfTunnel(Location[][] dungeon, int height, int width, int id){
+    int numNodes = height * width;
+    int row = (id - (id % width))/ width;
+    int col = id % width;
+
+    return dungeon[row][col].isTunnel();
   }
 }

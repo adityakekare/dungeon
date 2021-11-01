@@ -45,4 +45,22 @@ public class Connector {
   public void setEast(boolean east) {
     this.east = east;
   }
+
+  public int getNumRoutes(){
+    int count = 0;
+    if(this.isEast()){
+      count += 1;
+    }
+    if(this.isNorth()){
+      count += 1;
+    }
+    if(this.isSouth()){
+      count += 1;
+    }
+    if(this.isWest()){
+      count += 1;
+    }
+
+    return count;
+  }
 }

@@ -1,44 +1,50 @@
 package dungeon;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 import static java.util.stream.Collectors.groupingBy;
 
-import graph.DjikstraGraph;
+import graph.BfsGraph;
 import graph.KruskalGraph;
+import player.Player;
+import player.PlayerImpl;
 
-public class Dungeon {
+public class Dungeon implements GameMap{
   private final int height;
   private final int width;
   private final int degreeOfInterconnectivity;
   private final boolean isWrapping;
   private final int percentTreasure;
-  private final Cave[][] grid;
+  private final Location[][] grid;
   private final List<Path> paths;
   private final int start;
   private final int end;
+  private final Player player;
 
-  public Dungeon(int height, int width, int degreeOfInterconnectivity, boolean isWrapping, int percentTreasure) {
+  public Dungeon(int height, int width, int degreeOfInterconnectivity, boolean isWrapping, int percentTreasure, String playerName) {
     this.height = height;
     this.width = width;
     this.degreeOfInterconnectivity = degreeOfInterconnectivity;
     this.isWrapping = isWrapping;
     this.percentTreasure = percentTreasure;
+    this.player = new PlayerImpl(playerName);
     this.paths = generatePaths();
     this.grid = generateCaves(paths);
-    int[] startEnd = DjikstraGraph.getShortestPath(height * width, this.paths);
+    int[] startEnd = BfsGraph.getShortestPath(this.grid,
+            this.height,  this.width, this.paths);
     this.start = startEnd[0];
     this.end = startEnd[1];
+    this.addTreasures();
   }
 
-  private Cave[][] generateCaves(List<Path> paths){
-    Cave[][] tempGrid = new Cave[height][width];
+  private Location[][] generateCaves(List<Path> paths){
+    Location[][] tempGrid = new Location[height][width];
     int numCaves = height * width;
     Map<Integer, boolean[]> cavePaths = new HashMap<>();
 
@@ -86,7 +92,13 @@ public class Dungeon {
 
     for(int i = 0; i < height; i++){
       for(int j = 0; j < width; j++){
-        tempGrid[i][j] = new Cave(id, new Connector(cavePaths.get(id)));
+        Connector connector = new Connector(cavePaths.get(id));
+        if(connector.getNumRoutes() == 2){
+          tempGrid[i][j] = new Tunnel(id, connector);
+        }
+        else{
+          tempGrid[i][j] = new Cave(id, connector);
+        }
         id += 1;
       }
     }
@@ -154,8 +166,33 @@ public class Dungeon {
     return finalPaths;
   }
 
-  private void setBounds(){
+  private void addTreasures(){
+    Random random = new Random();
+    Map<Integer, Treasure> treasureMap = new HashMap<>();
 
+    treasureMap.put(0, Treasure.DIAMOND);
+    treasureMap.put(1, Treasure.RUBY);
+    treasureMap.put(2, Treasure.SAPPHIRE);
+    int numNodes = this.height * this.width;
+    int treasureCaveNum = (int) (numNodes * ((double) this.percentTreasure/ (double) 100));
+
+    int i = 0;
+//    System.out.println("wheew " + i);
+    while(i < treasureCaveNum){
+//      System.out.println("wheew " + i);
+      int randomId = random.ints(0, numNodes).findAny().getAsInt();
+      int row = (randomId - (randomId % width))/ width;
+      int col = randomId % width;
+      if(this.grid[row][col].isTunnel()){
+        continue;
+      }
+//      System.out.println(randomId + " " + treasureMap.get(i % 3));
+      Cave chosenCave = ((Cave) this.grid[row][col]);
+      List<Treasure> treasures = chosenCave.getTreasures();
+      treasures.add(treasureMap.get(i % 3));
+      chosenCave.setTreasures(treasures);
+      i += 1;
+    }
   }
 
   @Override
@@ -163,10 +200,10 @@ public class Dungeon {
     String result = "";
     for(int i = 0; i < height; i++){
       for(int j = 0; j < width; j++){
-        result = String.format(result + grid[i][j] + "  ");
+        System.out.println(grid[i][j].toString());
       }
-      result = result + "\n";
+//      result.append("\n");
     }
-    return result;
+    return result.toString();
   }
 }

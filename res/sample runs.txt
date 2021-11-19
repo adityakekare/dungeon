@@ -1,0 +1,1152 @@
+Program run 1:
+
+Please enter the size of the dungeon
+5
+5
+Please enter the degree of interconnectivity
+4
+Is the dungeon wrapping? (Y or N)
+n
+Please enter the percentage of treasure & arrows
+50
+Please enter the name of the player
+Aditya
+Please enter the number of monsters in the dungeon: 
+
+5
+
+Welcome to the dungeon Aditya!
+You are in a cave.
+Collectibles - Treasure: SAPPHIRE, SAPPHIRE, RUBY, SAPPHIRE
+Doors lead to the N
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+treasure
+
+Treasures collected:  SAPPHIRE: 3 RUBY: 1
+Arrows remaining: 3
+You are in a cave.
+Doors lead to the N
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+arrow
+Inventory not present
+
+Treasures collected:  SAPPHIRE: 3 RUBY: 1
+Arrows remaining: 3
+You are in a cave.
+Doors lead to the N
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+n
+
+Treasures collected:  SAPPHIRE: 3 RUBY: 1
+Arrows remaining: 3
+You are in a tunnel.
+Collectibles - Arrows: 1
+The tunnel continues from S, E
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+treasure
+Inventory not present
+
+Treasures collected:  SAPPHIRE: 3 RUBY: 1
+Arrows remaining: 3
+You are in a tunnel.
+Collectibles - Arrows: 1
+The tunnel continues from S, E
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+arrow
+
+Treasures collected:  SAPPHIRE: 3 RUBY: 1
+Arrows remaining: 4
+You are in a tunnel which continues from S, E
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+e
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 3 RUBY: 1
+Arrows remaining: 4
+You are in a tunnel which continues from S, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+s
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 3 RUBY: 1
+Arrows remaining: 4
+You are in a tunnel.
+Collectibles - Arrows: 1
+The tunnel continues from N, S
+Move, Pickup, or Shoot (M-P-S)? 
+s
+Where? 
+s
+No. of caves (1-5)? 
+1
+You hear a great howl in the distance
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 3 RUBY: 1
+Arrows remaining: 3
+You are in a tunnel.
+Collectibles - Arrows: 1
+The tunnel continues from N, S
+Move, Pickup, or Shoot (M-P-S)? 
+s
+Where? 
+s
+No. of caves (1-5)? 
+1
+You hear a great howl in the distance
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 3 RUBY: 1
+Arrows remaining: 2
+You are in a tunnel.
+Collectibles - Arrows: 1
+The tunnel continues from N, S
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+arrow
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 3 RUBY: 1
+Arrows remaining: 3
+You are in a tunnel which continues from N, S
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+s
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 3 RUBY: 1
+Arrows remaining: 3
+You are in a cave.
+Collectibles - Treasure: SAPPHIRE, RUBY, SAPPHIRE, RUBY, SAPPHIRE, DIAMOND, RUBY, RUBY  Arrows: 1
+Doors lead to the N, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+treasure
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 6 DIAMOND: 1 RUBY: 5
+Arrows remaining: 3
+You are in a cave.
+Collectibles - Arrows: 1
+Doors lead to the N, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+arrow
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 6 DIAMOND: 1 RUBY: 5
+Arrows remaining: 4
+You are in a cave.
+Doors lead to the N, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+s
+Where? 
+e
+No. of caves (1-5)? 
+1
+You hear a great howl in the distance
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 6 DIAMOND: 1 RUBY: 5
+Arrows remaining: 3
+You are in a cave.
+Doors lead to the N, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+s
+Where? 
+e
+No. of caves (1-5)? 
+1
+You hear a great howl in the distance
+
+Treasures collected:  SAPPHIRE: 6 DIAMOND: 1 RUBY: 5
+Arrows remaining: 2
+You are in a cave.
+Doors lead to the N, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+e
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 6 DIAMOND: 1 RUBY: 5
+Arrows remaining: 2
+You are in a cave.
+Collectibles - Treasure: DIAMOND, DIAMOND
+Doors lead to the N, S, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+treasure
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 6 DIAMOND: 3 RUBY: 5
+Arrows remaining: 2
+You are in a cave.
+Doors lead to the N, S, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+s
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 6 DIAMOND: 3 RUBY: 5
+Arrows remaining: 2
+You are in a cave.
+Collectibles - Treasure: SAPPHIRE, SAPPHIRE, DIAMOND  Arrows: 1
+Doors lead to the N, S, W
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+treasure
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 8 DIAMOND: 4 RUBY: 5
+Arrows remaining: 2
+You are in a cave.
+Collectibles - Arrows: 1
+Doors lead to the N, S, W
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+arrow
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 8 DIAMOND: 4 RUBY: 5
+Arrows remaining: 3
+You are in a cave.
+Doors lead to the N, S, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+s
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 8 DIAMOND: 4 RUBY: 5
+Arrows remaining: 3
+You are in a cave.
+Collectibles - Treasure: DIAMOND, RUBY, SAPPHIRE, DIAMOND, RUBY  Arrows: 1
+Doors lead to the N, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+treasure
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 9 DIAMOND: 6 RUBY: 7
+Arrows remaining: 3
+You are in a cave.
+Collectibles - Arrows: 1
+Doors lead to the N, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+arrow
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 9 DIAMOND: 6 RUBY: 7
+Arrows remaining: 4
+You are in a cave.
+Doors lead to the N, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+s
+Where? 
+e
+No. of caves (1-5)? 
+1
+You hear a great howl in the distance
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 9 DIAMOND: 6 RUBY: 7
+Arrows remaining: 3
+You are in a cave.
+Doors lead to the N, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+s
+Where? 
+e
+No. of caves (1-5)? 
+1
+You hear a great howl in the distance
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 9 DIAMOND: 6 RUBY: 7
+Arrows remaining: 2
+You are in a cave.
+Doors lead to the N, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+e
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 9 DIAMOND: 6 RUBY: 7
+Arrows remaining: 2
+You are in a cave.
+Collectibles - Treasure: DIAMOND, SAPPHIRE, DIAMOND, DIAMOND, RUBY, RUBY, SAPPHIRE, DIAMOND, RUBY, DIAMOND, SAPPHIRE, RUBY
+Doors lead to the N, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+treasure
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 12 DIAMOND: 11 RUBY: 11
+Arrows remaining: 2
+You are in a cave.
+Doors lead to the N, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+s
+Where? 
+e
+No. of caves (1-5)? 
+1
+You shoot an arrow into the darkness
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 12 DIAMOND: 11 RUBY: 11
+Arrows remaining: 1
+You are in a cave.
+Doors lead to the N, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+s
+Where? 
+n
+No. of caves (1-5)? 
+1
+You hear a great howl in the distance
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 12 DIAMOND: 11 RUBY: 11
+Arrows remaining: 0
+You are in a cave.
+Doors lead to the N, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+s
+Where? 
+n
+No. of caves (1-5)? 
+1
+No more arrows left. Try again.
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+e
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 12 DIAMOND: 11 RUBY: 11
+Arrows remaining: 0
+You are in a cave.
+Collectibles - Treasure: RUBY, RUBY, DIAMOND
+Doors lead to the W
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+treasure
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 12 DIAMOND: 12 RUBY: 13
+Arrows remaining: 0
+You are in a cave.
+Doors lead to the W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+w
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 12 DIAMOND: 12 RUBY: 13
+Arrows remaining: 0
+You are in a cave.
+Doors lead to the N, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+n
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 12 DIAMOND: 12 RUBY: 13
+Arrows remaining: 0
+You are in a cave.
+Collectibles - Treasure: SAPPHIRE, DIAMOND, SAPPHIRE, SAPPHIRE, DIAMOND, SAPPHIRE
+Doors lead to the N, S, E
+Move, Pickup, Shoot, or End (M-P-S-E)? 
+m
+Where? 
+n
+
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 12 DIAMOND: 12 RUBY: 13
+Arrows remaining: 0
+You are in a cave.
+Collectibles - Treasure: RUBY, SAPPHIRE, SAPPHIRE  Arrows: 1
+Doors lead to the N, S, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+Please enter a valid input. Try again.
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+arrow
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 12 DIAMOND: 12 RUBY: 13
+Arrows remaining: 1
+You are in a cave.
+Collectibles - Treasure: RUBY, SAPPHIRE, SAPPHIRE
+Doors lead to the N, S, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+s
+Where? 
+s
+No. of caves (1-5)? 
+1
+You hear a great howl in the distance
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 12 DIAMOND: 12 RUBY: 13
+Arrows remaining: 0
+You are in a cave.
+Collectibles - Treasure: RUBY, SAPPHIRE, SAPPHIRE
+Doors lead to the N, S, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+treasure
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 14 DIAMOND: 12 RUBY: 14
+Arrows remaining: 0
+You are in a cave.
+Doors lead to the N, S, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+s
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 14 DIAMOND: 12 RUBY: 14
+Arrows remaining: 0
+You are in a cave.
+Collectibles - Treasure: SAPPHIRE, DIAMOND, SAPPHIRE, SAPPHIRE, DIAMOND, SAPPHIRE
+Doors lead to the N, S, E
+Move, Pickup, Shoot, or End (M-P-S-E)? 
+p
+What?(treasure or arrow) 
+treasure
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 18 DIAMOND: 14 RUBY: 14
+Arrows remaining: 0
+You are in a cave.
+Doors lead to the N, S, E
+Move, Pickup, Shoot, or End (M-P-S-E)? 
+m
+Where? 
+n
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 18 DIAMOND: 14 RUBY: 14
+Arrows remaining: 0
+You are in a cave.
+Doors lead to the N, S, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+n
+
+Treasures collected:  SAPPHIRE: 18 DIAMOND: 14 RUBY: 14
+Arrows remaining: 0
+You are in a tunnel.
+Collectibles - Arrows: 2
+The tunnel continues from S, W
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+arrow
+
+Treasures collected:  SAPPHIRE: 18 DIAMOND: 14 RUBY: 14
+Arrows remaining: 2
+You are in a tunnel which continues from S, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+s
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 18 DIAMOND: 14 RUBY: 14
+Arrows remaining: 2
+You are in a cave.
+Doors lead to the N, S, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+e
+
+Treasures collected:  SAPPHIRE: 18 DIAMOND: 14 RUBY: 14
+Arrows remaining: 2
+You are in a tunnel which continues from N, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+n
+
+Treasures collected:  SAPPHIRE: 18 DIAMOND: 14 RUBY: 14
+Arrows remaining: 2
+You are in a tunnel.
+Collectibles - Arrows: 2
+The tunnel continues from N, S
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+arrow
+
+Treasures collected:  SAPPHIRE: 18 DIAMOND: 14 RUBY: 14
+Arrows remaining: 4
+You are in a tunnel which continues from N, S
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+n
+
+Treasures collected:  SAPPHIRE: 18 DIAMOND: 14 RUBY: 14
+Arrows remaining: 4
+You are in a tunnel.
+Collectibles - Arrows: 1
+The tunnel continues from S, W
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+arrow
+
+Treasures collected:  SAPPHIRE: 18 DIAMOND: 14 RUBY: 14
+Arrows remaining: 5
+You are in a tunnel which continues from S, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+w
+
+Treasures collected:  SAPPHIRE: 18 DIAMOND: 14 RUBY: 14
+Arrows remaining: 5
+You are in a tunnel which continues from E, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+w
+
+Treasures collected:  SAPPHIRE: 18 DIAMOND: 14 RUBY: 14
+Arrows remaining: 5
+You are in a tunnel.
+Collectibles - Arrows: 1
+The tunnel continues from S, E
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+arrow
+
+Treasures collected:  SAPPHIRE: 18 DIAMOND: 14 RUBY: 14
+Arrows remaining: 6
+You are in a tunnel which continues from S, E
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+s
+
+Treasures collected:  SAPPHIRE: 18 DIAMOND: 14 RUBY: 14
+Arrows remaining: 6
+You are in a cave.
+Collectibles - Treasure: DIAMOND, DIAMOND, SAPPHIRE, RUBY  Arrows: 1
+Doors lead to the N, S, E
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+treasure
+
+Treasures collected:  SAPPHIRE: 19 DIAMOND: 16 RUBY: 15
+Arrows remaining: 6
+You are in a cave.
+Collectibles - Arrows: 1
+Doors lead to the N, S, E
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+arrow
+
+Treasures collected:  SAPPHIRE: 19 DIAMOND: 16 RUBY: 15
+Arrows remaining: 7
+You are in a cave.
+Doors lead to the N, S, E
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+s
+
+Treasures collected:  SAPPHIRE: 19 DIAMOND: 16 RUBY: 15
+Arrows remaining: 7
+You are in a cave.
+Doors lead to the N, S, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+w
+
+Treasures collected:  SAPPHIRE: 19 DIAMOND: 16 RUBY: 15
+Arrows remaining: 7
+You are in a cave.
+Doors lead to the N, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+w
+
+Treasures collected:  SAPPHIRE: 19 DIAMOND: 16 RUBY: 15
+Arrows remaining: 7
+You are in a tunnel which continues from S, E
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+s
+
+Treasures collected:  SAPPHIRE: 19 DIAMOND: 16 RUBY: 15
+Arrows remaining: 7
+You are in a tunnel which continues from N, S
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+s
+
+Treasures collected:  SAPPHIRE: 19 DIAMOND: 16 RUBY: 15
+Arrows remaining: 7
+You are in a tunnel.
+Collectibles - Arrows: 1
+The tunnel continues from N, E
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+arrow
+
+Treasures collected:  SAPPHIRE: 19 DIAMOND: 16 RUBY: 15
+Arrows remaining: 8
+You are in a tunnel which continues from N, E
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+e
+
+Treasures collected:  SAPPHIRE: 19 DIAMOND: 16 RUBY: 15
+Arrows remaining: 8
+You are in a tunnel which continues from E, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+e
+
+Treasures collected:  SAPPHIRE: 19 DIAMOND: 16 RUBY: 15
+Arrows remaining: 8
+You are in a cave.
+Doors lead to the N, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+e
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 19 DIAMOND: 16 RUBY: 15
+Arrows remaining: 8
+You are in a cave.
+Doors lead to the N, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+e
+
+Treasures collected:  SAPPHIRE: 19 DIAMOND: 16 RUBY: 15
+Arrows remaining: 8
+You are in a cave.
+Doors lead to the W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+w
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 19 DIAMOND: 16 RUBY: 15
+Arrows remaining: 8
+You are in a cave.
+Doors lead to the N, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+n
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 19 DIAMOND: 16 RUBY: 15
+Arrows remaining: 8
+You are in a cave.
+Doors lead to the N, S, E
+Move, Pickup, Shoot, or End (M-P-S-E)? 
+e
+
+Player wins!
+
+Process finished with exit code 0
+
+
+----------------------------------------------------------------------------------------------------
+Program run 2:
+
+Please enter the size of the dungeon
+6
+7
+Please enter the degree of interconnectivity
+6
+Is the dungeon wrapping? (Y or N)
+y
+Please enter the percentage of treasure & arrows
+30
+Please enter the name of the player
+Aditya
+Please enter the number of monsters in the dungeon: 
+
+6
+
+Welcome to the dungeon Aditya!
+You are in a cave.
+Doors lead to the S, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+n
+No such path exists. Try again.
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+e
+
+Treasures collected: None
+Arrows remaining: 3
+You are in a cave.
+Collectibles - Treasure: DIAMOND
+Doors lead to the S, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+treasure
+
+Treasures collected:  DIAMOND: 1
+Arrows remaining: 3
+You are in a cave.
+Doors lead to the S, E, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+e
+
+Treasures collected:  DIAMOND: 1
+Arrows remaining: 3
+You are in a tunnel.
+Collectibles - Arrows: 1
+The tunnel continues from S, W
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+arrow
+
+Treasures collected:  DIAMOND: 1
+Arrows remaining: 4
+You are in a tunnel which continues from S, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+n
+No such path exists. Try again.
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+s
+
+Treasures collected:  DIAMOND: 1
+Arrows remaining: 4
+You are in a cave.
+Doors lead to the N, S, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+s
+
+Treasures collected:  DIAMOND: 1
+Arrows remaining: 4
+You are in a tunnel which continues from N, E
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+e
+
+Treasures collected:  DIAMOND: 1
+Arrows remaining: 4
+You are in a cave.
+Collectibles - Treasure: DIAMOND, RUBY, SAPPHIRE
+Doors lead to the N, S, W
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+treasure
+
+Treasures collected:  SAPPHIRE: 1 DIAMOND: 2 RUBY: 1
+Arrows remaining: 4
+You are in a cave.
+Doors lead to the N, S, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+s
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 1 DIAMOND: 2 RUBY: 1
+Arrows remaining: 4
+You are in a cave.
+Collectibles - Arrows: 1
+Doors lead to the N, S, E
+Move, Pickup, or Shoot (M-P-S)? 
+p
+What?(treasure or arrow) 
+arrow
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 1 DIAMOND: 2 RUBY: 1
+Arrows remaining: 5
+You are in a cave.
+Doors lead to the N, S, E
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+s
+
+Treasures collected:  SAPPHIRE: 1 DIAMOND: 2 RUBY: 1
+Arrows remaining: 5
+You are in a cave.
+Doors lead to the N
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+n
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 1 DIAMOND: 2 RUBY: 1
+Arrows remaining: 5
+You are in a cave.
+Doors lead to the N, S, E
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+e
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 1 DIAMOND: 2 RUBY: 1
+Arrows remaining: 5
+You are in a tunnel.
+Collectibles - Arrows: 1
+The tunnel continues from E, W
+Move, Pickup, or Shoot (M-P-S)? 
+m
+Where? 
+e
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 1 DIAMOND: 2 RUBY: 1
+Arrows remaining: 5
+You are in a cave.
+Collectibles - Treasure: SAPPHIRE  Arrows: 1
+Doors lead to the N, S, E, W
+
+Otyugh ate you for dinner tonight.
+Better luck next time!
+
+Process finished with exit code 0
+
+
+----------------------------------------------------------------------------------------------------
+Program run 3:
+
+C:\Users\adity\.jdks\corretto-11.0.12\bin\java.exe "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2021.2.1\lib\idea_rt.jar=59608:C:\Program Files\JetBrains\IntelliJ IDEA 2021.2.1\bin" -Dfile.encoding=UTF-8 -classpath C:\Users\adity\IdeaProjects\dungeon\out\production\dungeon Driver
+Please enter the size of the dungeon
+7
+st
+Please enter integer inputs
+Please enter the size of the dungeon
+6
+6
+Please enter the degree of interconnectivity
+7
+Is the dungeon wrapping? (Y or N)
+n
+Please enter the percentage of treasure & arrows
+40
+Please enter the name of the player
+Aditya
+Please enter the number of monsters in the dungeon:
+
+5
+
+Welcome to the dungeon Aditya !
+You are in a cave.
+Collectibles - Treasure: SAPPHIRE, RUBY  Arrows: 1
+Doors lead to the S, E, W
+Move, Pickup, or Shoot (M-P-S)?
+p
+What?(treasure or arrow)
+arrow
+
+Treasures collected: None
+Arrows remaining: 4
+You are in a cave.
+Collectibles - Treasure: SAPPHIRE, RUBY
+Doors lead to the S, E, W
+Move, Pickup, or Shoot (M-P-S)?
+p
+What?(treasure or arrow)
+arrow
+Inventory not present
+
+Treasures collected: None
+Arrows remaining: 4
+You are in a cave.
+Collectibles - Treasure: SAPPHIRE, RUBY
+Doors lead to the S, E, W
+Move, Pickup, or Shoot (M-P-S)?
+p
+What?(treasure or arrow)
+treasure
+
+Treasures collected:  SAPPHIRE: 1 RUBY: 1
+Arrows remaining: 4
+You are in a cave.
+Doors lead to the S, E, W
+Move, Pickup, or Shoot (M-P-S)?
+p
+What?(treasure or arrow)
+treasure
+Inventory not present
+
+Treasures collected:  SAPPHIRE: 1 RUBY: 1
+Arrows remaining: 4
+You are in a cave.
+Doors lead to the S, E, W
+Move, Pickup, or Shoot (M-P-S)?
+m
+Where?
+s
+
+Treasures collected:  SAPPHIRE: 1 RUBY: 1
+Arrows remaining: 4
+You are in a tunnel which continues from N, E
+Move, Pickup, or Shoot (M-P-S)?
+m
+Where?
+e
+
+Treasures collected:  SAPPHIRE: 1 RUBY: 1
+Arrows remaining: 4
+You are in a tunnel.
+Collectibles - Arrows: 1
+The tunnel continues from S, W
+Move, Pickup, or Shoot (M-P-S)?
+p
+What?(treasure or arrow)
+arrow
+
+Treasures collected:  SAPPHIRE: 1 RUBY: 1
+Arrows remaining: 5
+You are in a tunnel which continues from S, W
+Move, Pickup, or Shoot (M-P-S)?
+m
+Where?
+n
+No such path exists. Try again.
+Move, Pickup, or Shoot (M-P-S)?
+p
+What?(treasure or arrow)
+s
+Please enter a valid input. Try again.
+Move, Pickup, or Shoot (M-P-S)?
+m
+Where?
+s
+
+Treasures collected:  SAPPHIRE: 1 RUBY: 1
+Arrows remaining: 5
+You are in a cave.
+Collectibles - Treasure: DIAMOND
+Doors lead to the N, S, W
+Move, Pickup, or Shoot (M-P-S)?
+p
+What?(treasure or arrow)
+treasure
+
+Treasures collected:  SAPPHIRE: 1 DIAMOND: 1 RUBY: 1
+Arrows remaining: 5
+You are in a cave.
+Doors lead to the N, S, W
+Move, Pickup, or Shoot (M-P-S)?
+m
+Where?
+s
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 1 DIAMOND: 1 RUBY: 1
+Arrows remaining: 5
+You are in a cave.
+Collectibles - Treasure: RUBY  Arrows: 2
+Doors lead to the N, S, E
+Move, Pickup, or Shoot (M-P-S)?
+p
+What?(treasure or arrow)
+treasure
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 1 DIAMOND: 1 RUBY: 2
+Arrows remaining: 5
+You are in a cave.
+Collectibles - Arrows: 2
+Doors lead to the N, S, E
+Move, Pickup, or Shoot (M-P-S)?
+p
+What?(treasure or arrow)
+arrow
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 1 DIAMOND: 1 RUBY: 2
+Arrows remaining: 7
+You are in a cave.
+Doors lead to the N, S, E
+Move, Pickup, or Shoot (M-P-S)?
+m
+Where?
+s
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 1 DIAMOND: 1 RUBY: 2
+Arrows remaining: 7
+You are in a cave.
+Collectibles - Treasure: SAPPHIRE  Arrows: 1
+Doors lead to the N, S, E
+Move, Pickup, or Shoot (M-P-S)?
+p
+What?(treasure or arrow)
+treasure
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 2 DIAMOND: 1 RUBY: 2
+Arrows remaining: 7
+You are in a cave.
+Collectibles - Arrows: 1
+Doors lead to the N, S, E
+Move, Pickup, or Shoot (M-P-S)?
+p
+What?(treasure or arrow)
+arrow
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 2 DIAMOND: 1 RUBY: 2
+Arrows remaining: 8
+You are in a cave.
+Doors lead to the N, S, E
+Move, Pickup, or Shoot (M-P-S)?
+s
+Where?
+s
+No. of caves (1-5)?
+1
+You hear a great howl in the distance
+
+You smell something unbearably filthy nearby...
+Treasures collected:  SAPPHIRE: 2 DIAMOND: 1 RUBY: 2
+Arrows remaining: 7
+You are in a cave.
+Doors lead to the N, S, E
+Move, Pickup, or Shoot (M-P-S)?
+s
+Where?
+s
+No. of caves (1-5)?
+1
+You hear a great howl in the distance
+
+Treasures collected:  SAPPHIRE: 2 DIAMOND: 1 RUBY: 2
+Arrows remaining: 6
+You are in a cave.
+Doors lead to the N, S, E
+Move, Pickup, or Shoot (M-P-S)?
+s
+Where?
+w
+No. of caves (1-5)?
+3
+Cannot shoot in that direction. Try again.
+Move, Pickup, or Shoot (M-P-S)?
+s
+Where?
+w
+No. of caves (1-5)?
+6
+Please enter an integer between 1-5. Try again.
+Move, Pickup, or Shoot (M-P-S)?
+m
+Where?
+s
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 2 DIAMOND: 1 RUBY: 2
+Arrows remaining: 6
+You are in a cave.
+Collectibles - Treasure: SAPPHIRE, SAPPHIRE  Arrows: 1
+Doors lead to the N, E, W
+Move, Pickup, Shoot, or End (M-P-S-E)?
+p
+What?(treasure or arrow)
+treasure
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 4 DIAMOND: 1 RUBY: 2
+Arrows remaining: 6
+You are in a cave.
+Collectibles - Arrows: 1
+Doors lead to the N, E, W
+Move, Pickup, Shoot, or End (M-P-S-E)?
+p
+What?(treasure or arrow)
+arrow
+
+You smell something filthy nearby...
+Treasures collected:  SAPPHIRE: 4 DIAMOND: 1 RUBY: 2
+Arrows remaining: 7
+You are in a cave.
+Doors lead to the N, E, W
+Move, Pickup, Shoot, or End (M-P-S-E)?
+q
+Quitting game...
+
+Player wins!
+
+Process finished with exit code 0
+
+

@@ -1,8 +1,7 @@
-package model.graphUtils;
+package model.graphutils;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import model.dungeon.Path;
 
 /**

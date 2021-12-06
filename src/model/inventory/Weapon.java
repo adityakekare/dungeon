@@ -1,5 +1,8 @@
 package model.inventory;
 
+/**
+ * Enum for types of weapons.
+ */
 public enum Weapon {
   ARROW;
 

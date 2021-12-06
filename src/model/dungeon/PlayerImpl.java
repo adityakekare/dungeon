@@ -2,13 +2,13 @@ package model.dungeon;
 
 import java.util.HashMap;
 import java.util.Map;
-
+import java.util.NoSuchElementException;
 import model.inventory.Treasure;
 import model.inventory.Weapon;
 
 /**
- * This class implements the player interface as represents a player in the model.dungeon. The player can
- * move in the model.dungeon and collect treasures.
+ * This class implements the player interface as represents a player in the model.dungeon.
+ * The player can move in the dungeon and collect treasures.
  */
 class PlayerImpl implements Player {
 
@@ -48,9 +48,6 @@ class PlayerImpl implements Player {
     if (treasures.equals("")) {
       treasures += "None";
     }
-//    return "Player name: " + this.name + " Location id: " + this.location
-//            + "\n" + "Treasures collected:" + treasures + ", Arrows remaining: "
-//            + weaponCount.get(Weapon.ARROW.toString());
     return "Treasures collected: " + treasures + "\nArrows remaining: "
             + weaponCount.get(Weapon.ARROW.toString());
   }
@@ -89,7 +86,7 @@ class PlayerImpl implements Player {
   @Override
   public void shoot() {
     if (this.getArrowCount() <= 0) {
-      throw new IllegalArgumentException("No more arrows left");
+      throw new NoSuchElementException("No more arrows left");
     }
     weaponCount.put(Weapon.ARROW.name(), weaponCount.get(Weapon.ARROW.name()) - 1);
   }

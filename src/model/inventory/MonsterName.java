@@ -1,5 +1,8 @@
 package model.inventory;
 
+/**
+ * Enum for different names of monsters.
+ */
 public enum MonsterName {
   OTYUGH;
 

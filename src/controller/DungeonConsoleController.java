@@ -2,14 +2,23 @@ package controller;
 
 import java.io.IOException;
 import java.util.Scanner;
-
 import model.game.Game;
 
+/**
+ * This class implements the DungeonController interface. It is a console controller which
+ * implements the model game using the console as output and input.
+ */
 public class DungeonConsoleController implements DungeonController {
 
   private final Appendable out;
   private final Scanner scanner;
 
+  /**
+   * Constructor to initialize the controller with input stream and output stream.
+   *
+   * @param in  input stream.
+   * @param out output stream.
+   */
   public DungeonConsoleController(Readable in, Appendable out) {
     if (in == null || out == null) {
       throw new IllegalArgumentException("Readable and Appendable can't be null");
@@ -24,7 +33,7 @@ public class DungeonConsoleController implements DungeonController {
       throw new IllegalArgumentException("Invalid model passed");
     }
 
-    try{
+    try {
       String smell = game.getMonsterSmell();
       if (!smell.isEmpty()) {
         out.append(smell).append("\n");
@@ -85,7 +94,6 @@ public class DungeonConsoleController implements DungeonController {
           out.append("Please enter a valid input" + ". Try again.\n");
           continue;
         }
-//      System.out.println(model.game.dumpDungeon());
         smell = game.getMonsterSmell();
         out.append("\n");
         if (!smell.isEmpty()) {
@@ -104,10 +112,9 @@ public class DungeonConsoleController implements DungeonController {
         out.append("\nGame aborted.\n");
       }
 
-    }catch (IOException ioe){
+    } catch (IOException ioe) {
       throw new IllegalStateException("Append failed", ioe);
     }
-
 
   }
 }

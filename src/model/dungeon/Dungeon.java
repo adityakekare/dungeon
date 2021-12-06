@@ -9,9 +9,8 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.Set;
-
-import model.graphUtils.BfsGraph;
-import model.graphUtils.KruskalGraph;
+import model.graphutils.BfsGraph;
+import model.graphutils.KruskalGraph;
 import model.inventory.InventoryType;
 import model.inventory.Monster;
 import model.inventory.Treasure;
@@ -19,7 +18,8 @@ import model.inventory.Weapon;
 
 /**
  * This class represents a dungeon with all its attributes. The dungeon map, the paths between the
- * locations in the dungeon and the player are all part of the dungeon.
+ * locations in the dungeon and the player are all part of the dungeon. The class can create both,
+ * random and deterministic dungeons.
  */
 public class Dungeon implements GameMap {
   private final int height;
@@ -31,9 +31,10 @@ public class Dungeon implements GameMap {
   private final int start;
   private final int end;
   private final Player player;
+  private final long randomSeed;
 
   /**
-   * Constructor to initialize a model.dungeon.
+   * Constructor to initialize a randomized dungeon.
    *
    * @param height                    height of the dungeon.
    * @param width                     width of the dungeon.
@@ -44,6 +45,7 @@ public class Dungeon implements GameMap {
    */
   public Dungeon(int height, int width, int degreeOfInterconnectivity, boolean isWrapping,
                  int percentTreasure, String playerName) {
+    randomSeed = 0;
     this.height = height;
     this.width = width;
     this.degreeOfInterconnectivity = degreeOfInterconnectivity;
@@ -52,7 +54,35 @@ public class Dungeon implements GameMap {
     List<Path> paths = generatePaths();
     this.grid = generateCaves(paths);
     int[] startEnd = BfsGraph.getShortestPath(this.grid,
-            this.height, this.width, paths);
+            this.height, this.width, paths, randomSeed);
+    this.start = startEnd[0];
+    this.end = startEnd[1];
+    this.player = new PlayerImpl(playerName, this.start);
+  }
+
+  /**
+   * Constructor to initialize a deterministic dungeon.
+   *
+   * @param height                    height of the dungeon.
+   * @param width                     width of the dungeon.
+   * @param degreeOfInterconnectivity degree of interconnectivity.
+   * @param isWrapping                whether the dungeon is wrapping or not.
+   * @param percentTreasure           %age of caves which contain treasure.
+   * @param playerName                Name of the Player.
+   * @param seed                      seed for randomizer.
+   */
+  public Dungeon(int height, int width, int degreeOfInterconnectivity, boolean isWrapping,
+                 int percentTreasure, String playerName, long seed) {
+    randomSeed = seed;
+    this.height = height;
+    this.width = width;
+    this.degreeOfInterconnectivity = degreeOfInterconnectivity;
+    this.isWrapping = isWrapping;
+    this.percentTreasure = percentTreasure;
+    List<Path> paths = generatePaths();
+    this.grid = generateCaves(paths);
+    int[] startEnd = BfsGraph.getShortestPath(this.grid,
+            this.height, this.width, paths, randomSeed);
     this.start = startEnd[0];
     this.end = startEnd[1];
     this.player = new PlayerImpl(playerName, this.start);
@@ -109,7 +139,6 @@ public class Dungeon implements GameMap {
   }
 
   private List<Path> generatePaths() {
-    List<Path> allPaths = new ArrayList<>();
     Set<Path> uniquePaths = new HashSet<>();
     int vertices = height * width;
 
@@ -145,12 +174,17 @@ public class Dungeon implements GameMap {
       }
     }
 
-    allPaths.addAll(uniquePaths);
-    Collections.shuffle(allPaths);
+    List<Path> allPaths = new ArrayList<>(uniquePaths);
+    if (randomSeed != 0) {
+      Collections.shuffle(allPaths, new Random(randomSeed));
+    } else {
+      Collections.shuffle(allPaths);
+    }
 
     List<Path> finalPaths = KruskalGraph.generateMst(allPaths, vertices, degreeOfInterconnectivity);
 
     Collections.sort(finalPaths);
+
 
     return finalPaths;
   }
@@ -169,29 +203,30 @@ public class Dungeon implements GameMap {
     }
 
     if (countCaves < totalNum) {
-      throw new IllegalArgumentException("Monsters in the model.dungeon cannot be more than "
+      throw new IllegalArgumentException("Monsters in the dungeon cannot be more than "
               + countCaves + "\n");
     }
 
-    Location endLocation = this.grid[getPosition(this.end).getXpos()][getPosition(this.end).
-            getYpos()];
+    Location endLocation = this.grid[getPosition(this.end).getXpos()][getPosition(this.end)
+            .getYpos()];
     endLocation.add(InventoryType.MONSTER);
 
-    Random random = new Random();
+    Random random;
+    if (randomSeed != 0) {
+      random = new Random(randomSeed);
+    } else {
+      random = new Random();
+    }
+
     int i = 0;
     while (i < totalNum - 1) {
       int randomId = random.ints(0, caves.size()).findAny().getAsInt();
       Position position = getPosition(caves.get(randomId));
       Location currentLocation = this.grid[position.getXpos()][position.getYpos()];
-      if (!currentLocation.contains(InventoryType.MONSTER) &&
-              (currentLocation.getId() != this.start)) {
-//        this.grid[position.getXpos()][position.getYpos()] = new
-//                MonsterCave(this.grid[position.getXpos()][position.getYpos()], MonsterName.OTYUGH);
-//        ((Cave) this.grid[position.getXpos()][position.getYpos()]).
-//                addMonster(new Monster(MonsterName.OTYUGH));
+      if (!currentLocation.contains(InventoryType.MONSTER)
+              && (currentLocation.getId() != this.start)) {
         try {
           currentLocation.add(InventoryType.MONSTER);
-//          System.out.println(position);
         } catch (IllegalArgumentException iae) {
           System.out.println(iae.getMessage());
         } catch (IllegalStateException ise) {
@@ -432,31 +467,52 @@ public class Dungeon implements GameMap {
 
   @Override
   public String playerShootArrowNorth(int distance) {
-    this.player.shoot();
+    try {
+      this.player.shoot();
+    } catch (NoSuchElementException nse) {
+      throw new IllegalArgumentException(nse.getMessage());
+    }
     return this.shootNorth(this.player.getLocation(), distance);
   }
 
   @Override
   public String playerShootArrowSouth(int distance) {
-    this.player.shoot();
+    try {
+      this.player.shoot();
+    } catch (NoSuchElementException nse) {
+      throw new IllegalArgumentException(nse.getMessage());
+    }
     return this.shootSouth(this.player.getLocation(), distance);
   }
 
   @Override
   public String playerShootArrowWest(int distance) {
-    this.player.shoot();
+    try {
+      this.player.shoot();
+    } catch (NoSuchElementException nse) {
+      throw new IllegalArgumentException(nse.getMessage());
+    }
     return this.shootWest(this.player.getLocation(), distance);
   }
 
   @Override
   public String playerShootArrowEast(int distance) {
-    this.player.shoot();
+    try {
+      this.player.shoot();
+    } catch (NoSuchElementException nse) {
+      throw new IllegalArgumentException(nse.getMessage());
+    }
     return this.shootEast(this.player.getLocation(), distance);
   }
 
   @Override
   public void addWeapons() {
-    Random random = new Random();
+    Random random;
+    if (randomSeed != 0) {
+      random = new Random(randomSeed);
+    } else {
+      random = new Random();
+    }
     Set<Location> locations = new HashSet<>();
 
     int numNodes = this.height * this.width;
@@ -478,13 +534,15 @@ public class Dungeon implements GameMap {
 
   @Override
   public void addTreasures() {
-    Random random = new Random();
+    Random random;
+    if (randomSeed != 0) {
+      random = new Random(randomSeed);
+    } else {
+      random = new Random();
+    }
+
     Set<Location> locationSet = new HashSet<>();
-//    Map<Integer, Treasure> treasureMap = new HashMap<>();
-//
-//    treasureMap.put(0, Treasure.DIAMOND);
-//    treasureMap.put(1, Treasure.RUBY);
-//    treasureMap.put(2, Treasure.SAPPHIRE);
+
     int numNodes = this.height * this.width;
     int treasureCaveNum = (int) (numNodes * ((double) this.percentTreasure / (double) 100));
 
@@ -497,10 +555,6 @@ public class Dungeon implements GameMap {
         continue;
       }
 
-//      Cave chosenCave = ((Cave) this.grid[nodePos.getXpos()][nodePos.getYpos()]);
-//      List<Treasure> treasures = chosenCave.getTreasures();
-//      treasures.add(treasureMap.get(i % 3));
-//      chosenCave.setTreasures(treasures);
       currentLocation.add(InventoryType.TREASURE);
       if (!locationSet.contains(currentLocation)) {
         i += 1;
@@ -509,7 +563,8 @@ public class Dungeon implements GameMap {
     }
   }
 
-  private Position getPosition(int id) {
+  @Override
+  public Position getPosition(int id) {
     int row = (id - (id % width)) / width;
     int col = id % width;
 
@@ -581,12 +636,6 @@ public class Dungeon implements GameMap {
     Position position = getPosition(this.player.getLocation());
     Location currLocation = this.grid[position.getXpos()][position.getYpos()];
 
-//    if (!currLocation.isTunnel()) {
-//      for (Treasure treasure : ((Cave) currLocation).getTreasures()) {
-//        this.player.pickTreasure(treasure);
-//      }
-//    }
-
     try {
       List<Object> treasureList = currLocation.get(InventoryType.TREASURE);
       for (Object treasure : treasureList) {
@@ -600,7 +649,8 @@ public class Dungeon implements GameMap {
     this.checkIfBattle();
   }
 
-  private int checkIfMonsterPresent(int id, int distance, int playerLocation, Set<Integer> visited) {
+  private int checkIfMonsterPresent(int id, int distance, int playerLocation,
+                                    Set<Integer> visited) {
     if (distance < 0) {
       return 0;
     }
@@ -609,8 +659,8 @@ public class Dungeon implements GameMap {
     }
     visited.add(id);
 
-    Location location = this.grid[getPosition(id).
-            getXpos()][getPosition(id).getYpos()];
+    Location location = this.grid[getPosition(id)
+            .getXpos()][getPosition(id).getYpos()];
     int north = 0;
     int south = 0;
     int west = 0;
@@ -637,8 +687,8 @@ public class Dungeon implements GameMap {
               distance - 1, playerLocation, visited);
     }
 
-    return (location.contains(InventoryType.MONSTER) ? distance + 1 : 0) +
-            (north + south + west + east);
+    return (location.contains(InventoryType.MONSTER) ? distance + 1 : 0)
+            + (north + south + west + east);
   }
 
   @Override
@@ -647,21 +697,25 @@ public class Dungeon implements GameMap {
     int smell = 0;
     int distance = 2;
     int playerLocationId = this.player.getLocation();
-    Location playerLocation = this.grid[getPosition(playerLocationId).
-            getXpos()][getPosition(playerLocationId).getYpos()];
+    Location playerLocation = this.grid[getPosition(playerLocationId)
+            .getXpos()][getPosition(playerLocationId).getYpos()];
     Connector playerRoutes = playerLocation.getRoutes();
 
     if (playerRoutes.isNorth()) {
-      smell += this.checkIfMonsterPresent(getNorth(playerLocationId), distance - 1, playerLocationId, visited);
+      smell += this.checkIfMonsterPresent(getNorth(playerLocationId),
+              distance - 1, playerLocationId, visited);
     }
     if (playerRoutes.isEast()) {
-      smell += this.checkIfMonsterPresent(getEast(playerLocationId), distance - 1, playerLocationId, visited);
+      smell += this.checkIfMonsterPresent(getEast(playerLocationId),
+              distance - 1, playerLocationId, visited);
     }
     if (playerRoutes.isWest()) {
-      smell += this.checkIfMonsterPresent(getWest(playerLocationId), distance - 1, playerLocationId, visited);
+      smell += this.checkIfMonsterPresent(getWest(playerLocationId),
+              distance - 1, playerLocationId, visited);
     }
     if (playerRoutes.isSouth()) {
-      smell += this.checkIfMonsterPresent(getSouth(playerLocationId), distance - 1, playerLocationId, visited);
+      smell += this.checkIfMonsterPresent(getSouth(playerLocationId),
+              distance - 1, playerLocationId, visited);
     }
 
     if (smell >= 2) {
@@ -775,5 +829,10 @@ public class Dungeon implements GameMap {
   @Override
   public Player getPlayer() {
     return player;
+  }
+
+  @Override
+  public int getPlayerLocation() {
+    return player.getLocation();
   }
 }

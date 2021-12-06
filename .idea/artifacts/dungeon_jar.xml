@@ -2,9 +2,6 @@
   <artifact type="jar" name="dungeon:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/dungeon_jar</output-path>
     <root id="archive" name="dungeon.jar">
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/res/META-INF/MANIFEST.MF" />
-      </element>
       <element id="module-output" name="dungeon" />
     </root>
   </artifact>

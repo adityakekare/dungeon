@@ -6,12 +6,33 @@ package model.dungeon;
  */
 public interface GameMap {
 
+  /**
+   * Method for shooting the arrow to the south at a specific distance.
+   *
+   * @param distance distance as a measure of number of caves.
+   * @return String representing whether the arrow missed or hit.
+   */
   String playerShootArrowSouth(int distance);
 
+  /**
+   * Method for shooting the arrow to the west at a specific distance.
+   *
+   * @param distance distance as a measure of number of caves.
+   * @return String representing whether the arrow missed or hit.
+   */
   String playerShootArrowWest(int distance);
 
+  /**
+   * Method for shooting the arrow to the east at a specific distance.
+   *
+   * @param distance distance as a measure of number of caves.
+   * @return String representing whether the arrow missed or hit.
+   */
   String playerShootArrowEast(int distance);
 
+  /**
+   * Method for adding weapons (arrows) to the dungeon.
+   */
   void addWeapons();
 
   /**
@@ -20,12 +41,25 @@ public interface GameMap {
   void addTreasures();
 
   /**
+   * Method for getting the coordinates of location in the dungeon using its id.
+   *
+   * @param id Id of the location.
+   * @return Position instance of the location.
+   */
+  Position getPosition(int id);
+
+  /**
    * Method for getting the possible moves from the player's location as a Connector object.
    *
    * @return a Connector object representing connected routes.
    */
   Connector getPossibleMoves();
 
+  /**
+   * Method for calculating dynamically the smell of monster at the player location.
+   *
+   * @return String representing the smell.
+   */
   String getSmellAtPlayerLocation();
 
   /**
@@ -90,11 +124,37 @@ public interface GameMap {
    */
   Player getPlayer();
 
+  /**
+   * Method for generating the given number of monsters in the dungeon.
+   *
+   * @param totalNum number of monsters to be created.
+   */
   void generateMonsters(int totalNum);
 
+  /**
+   * Method for the player to collect weapons from the current location.
+   */
   void collectWeaponForPlayer();
 
+  /**
+   * Method to check whether the player is alive or dead.
+   *
+   * @return true if alive.
+   */
   boolean checkPlayerState();
 
+  /**
+   * Method for shooting the arrow to the north at a specific distance.
+   *
+   * @param distance distance as a measure of number of caves.
+   * @return String representing whether the arrow missed or hit.
+   */
   String playerShootArrowNorth(int distance);
+
+  /**
+   * Method for getting the player's location.
+   *
+   * @return location id of the player's current lcoation.
+   */
+  int getPlayerLocation();
 }

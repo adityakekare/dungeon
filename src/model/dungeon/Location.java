@@ -1,7 +1,6 @@
 package model.dungeon;
 
 import java.util.List;
-
 import model.inventory.InventoryType;
 
 /**
@@ -32,11 +31,34 @@ public interface Location<T> {
    */
   boolean isTunnel();
 
+  /**
+   * Method for checking if the given inventory is present at the location.
+   *
+   * @param inventoryType type of inventory.
+   * @return true if inventory is present.
+   */
   boolean contains(InventoryType inventoryType);
 
+  /**
+   * Method for adding the given inventory at the location.
+   *
+   * @param inventoryType type of inventory.
+   */
   void add(InventoryType inventoryType);
 
+
+  /**
+   * Method for getting the given inventory at the location.
+   *
+   * @param inventoryType type of inventory.
+   * @return list of inventory.
+   */
   List<T> get(InventoryType inventoryType);
 
+  /**
+   * Method for removing the given inventory at the location.
+   *
+   * @param inventoryType type of inventory.
+   */
   void remove(InventoryType inventoryType);
 }

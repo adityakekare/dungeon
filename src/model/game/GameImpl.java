@@ -5,7 +5,7 @@ import model.dungeon.GameMap;
 
 /**
  * Class for implementing methods in the Game interface. provides methods to interact with the
- * model.dungeon and mutate its state according to the input.
+ * dungeon and mutate its state according to the input.
  */
 public class GameImpl implements Game {
 
@@ -14,10 +14,10 @@ public class GameImpl implements Game {
   /**
    * Constructor which takes in all the attributes required to create the Dungeon object.
    *
-   * @param height                    height of the model.dungeon.
-   * @param width                     width of the model.dungeon.
+   * @param height                    height of the dungeon.
+   * @param width                     width of the dungeon.
    * @param degreeOfInterconnectivity degree of interconnectivity.
-   * @param isWrapping                whether the model.dungeon is wrapping or not.
+   * @param isWrapping                whether the dungeon is wrapping or not.
    * @param percentTreasure           %age of caves which contain treasure.
    * @param playerName                Name of the Player.
    */
@@ -33,6 +33,31 @@ public class GameImpl implements Game {
 
     this.dungeon = new Dungeon(height, width, degreeOfInterconnectivity,
             isWrapping, percentTreasure, playerName);
+  }
+
+  /**
+   * Constructor which takes in all the attributes required to create a deterministic Dungeon.
+   *
+   * @param height                    height of the dungeon.
+   * @param width                     width of the dungeon.
+   * @param degreeOfInterconnectivity degree of interconnectivity.
+   * @param isWrapping                whether the dungeon is wrapping or not.
+   * @param percentTreasure           %age of caves which contain treasure.
+   * @param playerName                Name of the Player.
+   * @param seed                      seed for randomizer.
+   */
+  public GameImpl(int height, int width, int degreeOfInterconnectivity, boolean isWrapping,
+                  int percentTreasure, String playerName, long seed) {
+    if (height + width < 7 || height <= 0 || width <= 0) {
+      throw new IllegalArgumentException("Please give a bigger size for the model.dungeon");
+    } else if (degreeOfInterconnectivity < 0) {
+      throw new IllegalArgumentException("Degree of connectivity less than 0 not possible");
+    } else if (percentTreasure < 0 || percentTreasure > 100) {
+      throw new IllegalArgumentException("Percentage of treasure should be between 0 and 100");
+    }
+
+    this.dungeon = new Dungeon(height, width, degreeOfInterconnectivity,
+            isWrapping, percentTreasure, playerName, seed);
   }
 
   @Override
@@ -78,9 +103,6 @@ public class GameImpl implements Game {
 
   @Override
   public String getMovesForPlayer() {
-//    String result = "Possible moves (Press N, S, E, W to move. Press Q to quit.): ";
-//    result += model.dungeon.getPossibleMoves().toString();
-
     return dungeon.getPossibleMoves().toString();
   }
 

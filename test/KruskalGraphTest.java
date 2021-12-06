@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.dungeon.Path;
-import model.graphUtils.KruskalGraph;
+import model.graphutils.KruskalGraph;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;

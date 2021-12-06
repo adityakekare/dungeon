@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
-
 import model.inventory.Inventory;
 import model.inventory.InventoryFactory;
 import model.inventory.InventoryType;
@@ -14,7 +13,7 @@ import model.inventory.InventoryType;
 /**
  * Abstract class which extends location and implements common methods of the subclasses.
  */
-public abstract class AbstractLocation<T> implements Location<T> {
+abstract class AbstractLocation<T> implements Location<T> {
 
   protected final Map<InventoryType, Inventory<T>> inventory;
   private final int id;
@@ -38,7 +37,7 @@ public abstract class AbstractLocation<T> implements Location<T> {
         inventory.get(inventoryType).add();
       }
     } else {
-      throw new IllegalArgumentException("Given model.inventory cannot be added to this location");
+      throw new IllegalArgumentException("Given inventory cannot be added to this location");
     }
   }
 
@@ -47,9 +46,6 @@ public abstract class AbstractLocation<T> implements Location<T> {
     if (!inventory.containsKey(inventoryType)) {
       throw new NoSuchElementException("Inventory not present");
     }
-//    else if(!model.inventory.get(inventoryType).contains()){
-//      throw new NoSuchElementException("Inventory not present");
-//    }
     return new ArrayList<>(inventory.get(inventoryType).get());
   }
 

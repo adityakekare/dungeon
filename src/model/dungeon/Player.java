@@ -37,13 +37,36 @@ interface Player {
    */
   void move(int location);
 
+  /**
+   * Method for the player to pick the given weapon.
+   *
+   * @param weapon weapon to be picked.
+   */
   void pickWeapon(Weapon weapon);
 
+  /**
+   * Method to check whether the player is alive or not.
+   *
+   * @return true if player is alive.
+   */
   public boolean isAlive();
 
+  /**
+   * Method to set the player's state.
+   *
+   * @param alive boolean value for setting the state.
+   */
   public void setAlive(boolean alive);
 
+  /**
+   * Method for the player to shoot the arrow. Reduces the number of arrows with the player by 1.
+   */
   public void shoot();
 
+  /**
+   * Method for getting the remaining arrows with the player.
+   *
+   * @return number of arrows remaining with the player.
+   */
   public int getArrowCount();
 }

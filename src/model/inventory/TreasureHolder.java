@@ -6,10 +6,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+/**
+ * Class acts as a wrapper for holding a collection of treasures. We can add, remove, get and check
+ * whether the treasure is present in the container.
+ */
 public class TreasureHolder implements Inventory {
 
   private final List<Treasure> treasures;
 
+  /**
+   * Constructor for initializing the treasure container.
+   */
   public TreasureHolder() {
     this.treasures = new ArrayList<>();
   }

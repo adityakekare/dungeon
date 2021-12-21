@@ -1,5 +1,7 @@
 package model.dungeon;
 
+import java.util.Map;
+
 /**
  * Class for representing a map in the game. A generic map with a methods to add treasures and move
  * the player can be created using this interface.
@@ -151,10 +153,37 @@ public interface GameMap {
    */
   String playerShootArrowNorth(int distance);
 
+  String getPlayerName();
+
   /**
    * Method for getting the player's location.
    *
    * @return location id of the player's current lcoation.
    */
   int getPlayerLocation();
+
+  /**
+   * Method for getting the player's location in the grid.
+   *
+   * @return location of the player's current position.
+   */
+  Position getPlayerGridLocation();
+
+  /**
+   * Get the treasures collected by the player.
+   *
+   * @return Map representing treasure count.
+   */
+  Map<String, Integer> getPlayerTreasureCount();
+
+  /**
+   * Get the weapons collected by the player.
+   *
+   * @return int representing arrow count.
+   */
+  int getPlayerWeaponCount();
+
+  boolean[][] getVisited();
+
+  String getMove(int id);
 }

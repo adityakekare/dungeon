@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.Set;
+
 import model.graphutils.BfsGraph;
 import model.graphutils.KruskalGraph;
 import model.inventory.InventoryType;
@@ -32,6 +33,7 @@ public class Dungeon implements GameMap {
   private final int end;
   private final Player player;
   private final long randomSeed;
+  private final boolean[][] visited;
 
   /**
    * Constructor to initialize a randomized dungeon.
@@ -58,6 +60,8 @@ public class Dungeon implements GameMap {
     this.start = startEnd[0];
     this.end = startEnd[1];
     this.player = new PlayerImpl(playerName, this.start);
+    this.visited = new boolean[height][width];
+    this.setVisited();
   }
 
   /**
@@ -86,6 +90,8 @@ public class Dungeon implements GameMap {
     this.start = startEnd[0];
     this.end = startEnd[1];
     this.player = new PlayerImpl(playerName, this.start);
+    this.visited = new boolean[height][width];
+    this.setVisited();
   }
 
   private Location[][] generateCaves(List<Path> paths) {
@@ -733,6 +739,7 @@ public class Dungeon implements GameMap {
   public void playerMoveNorth() {
     int north = getNorth(this.player.getLocation());
     this.player.move(north);
+    this.setVisited();
     this.checkIfBattle();
   }
 
@@ -748,6 +755,7 @@ public class Dungeon implements GameMap {
   public void playerMoveSouth() {
     int south = getSouth(this.player.getLocation());
     this.player.move(south);
+    this.setVisited();
     this.checkIfBattle();
   }
 
@@ -763,6 +771,7 @@ public class Dungeon implements GameMap {
   public void playerMoveEast() {
     int east = getEast(this.player.getLocation());
     this.player.move(east);
+    this.setVisited();
     this.checkIfBattle();
   }
 
@@ -778,6 +787,7 @@ public class Dungeon implements GameMap {
   public void playerMoveWest() {
     int west = getWest(this.player.getLocation());
     this.player.move(west);
+    this.setVisited();
     this.checkIfBattle();
   }
 
@@ -832,7 +842,62 @@ public class Dungeon implements GameMap {
   }
 
   @Override
+  public String getPlayerName() {
+    return player.getName();
+  }
+
+  @Override
   public int getPlayerLocation() {
     return player.getLocation();
+  }
+
+  @Override
+  public Position getPlayerGridLocation() {
+    return getPosition(player.getLocation());
+  }
+
+  @Override
+  public Map<String, Integer> getPlayerTreasureCount() {
+    return player.getTreasureCount();
+  }
+
+  @Override
+  public int getPlayerWeaponCount() {
+    return player.getArrowCount();
+  }
+
+  @Override
+  public boolean[][] getVisited() {
+    boolean[][] newArr = new boolean[height][width];
+
+    for (int i = 0; i < height; i++) {
+      for (int j = 0; j < width; j++) {
+        newArr[i][j] = visited[i][j];
+      }
+    }
+    return newArr;
+  }
+
+  @Override
+  public String getMove(int id) {
+    int playerLocation = player.getLocation();
+    Position playerPosition = getPosition(player.getLocation());
+    Connector routes = this.grid[playerPosition.getXpos()][playerPosition.getYpos()].getRoutes();
+    if (getNorth(playerLocation) == id && routes.isNorth()) {
+      return "n";
+    } else if (getSouth(playerLocation) == id && routes.isSouth()) {
+      return "s";
+    } else if (getWest(playerLocation) == id && routes.isWest()) {
+      return "w";
+    } else if (getEast(playerLocation) == id && routes.isEast()) {
+      return "e";
+    }
+
+    return "";
+  }
+
+  private void setVisited() {
+    Position playerLocation = getPosition(this.player.getLocation());
+    visited[playerLocation.getXpos()][playerLocation.getYpos()] = true;
   }
 }

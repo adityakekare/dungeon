@@ -3,6 +3,7 @@ package model.dungeon;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
+
 import model.inventory.Treasure;
 import model.inventory.Weapon;
 
@@ -91,7 +92,13 @@ class PlayerImpl implements Player {
     weaponCount.put(Weapon.ARROW.name(), weaponCount.get(Weapon.ARROW.name()) - 1);
   }
 
+  @Override
   public int getArrowCount() {
     return weaponCount.get(Weapon.ARROW.name());
+  }
+
+  @Override
+  public Map<String, Integer> getTreasureCount() {
+    return new HashMap<>(treasureCount);
   }
 }

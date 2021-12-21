@@ -1,11 +1,15 @@
 import controller.DungeonConsoleController;
 import controller.DungeonController;
+
 import java.io.InputStreamReader;
 import java.io.StringReader;
+
 import model.game.Game;
 import model.game.GameImpl;
+
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 
 /**

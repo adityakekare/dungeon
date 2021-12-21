@@ -2,6 +2,7 @@ package model.dungeon;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import model.inventory.InventoryType;
 
 /**
@@ -31,15 +32,15 @@ class Cave<T> extends AbstractLocation<T> {
     if (this.contains(InventoryType.TREASURE) && this.contains(InventoryType.WEAPON)) {
       return "You are in a cave.\n" + "Collectibles - " + "Treasure: "
               + inventory.get(InventoryType.TREASURE).get().toString()
-                      .substring(1, (inventory.get(InventoryType.TREASURE)
-                              .get().toString().length() - 1))
+              .substring(1, (inventory.get(InventoryType.TREASURE)
+                      .get().toString().length() - 1))
               + "  Arrows: " + inventory.get(InventoryType.WEAPON).get().size()
               + "\nDoors lead to the ";
     } else if (this.contains(InventoryType.TREASURE)) {
       return "You are in a cave.\n" + "Collectibles - " + "Treasure: "
               + inventory.get(InventoryType.TREASURE).get().toString()
-                      .substring(1, (inventory.get(InventoryType.TREASURE).get()
-                              .toString().length() - 1)) + "\nDoors lead to the ";
+              .substring(1, (inventory.get(InventoryType.TREASURE).get()
+                      .toString().length() - 1)) + "\nDoors lead to the ";
     } else if (this.contains(InventoryType.WEAPON)) {
       return "You are in a cave.\n" + "Collectibles - "
               + "Arrows: " + inventory.get(InventoryType.WEAPON).get().size()

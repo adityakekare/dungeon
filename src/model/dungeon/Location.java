@@ -1,6 +1,7 @@
 package model.dungeon;
 
 import java.util.List;
+
 import model.inventory.InventoryType;
 
 /**

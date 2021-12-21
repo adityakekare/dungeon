@@ -1,5 +1,7 @@
 package model.dungeon;
 
+import java.util.Map;
+
 import model.inventory.Treasure;
 import model.inventory.Weapon;
 
@@ -69,4 +71,6 @@ interface Player {
    * @return number of arrows remaining with the player.
    */
   public int getArrowCount();
+
+  Map<String, Integer> getTreasureCount();
 }

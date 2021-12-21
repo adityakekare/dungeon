@@ -1,7 +1,10 @@
 package model.game;
 
+import java.util.Map;
 import model.dungeon.Dungeon;
 import model.dungeon.GameMap;
+import model.dungeon.Location;
+import model.dungeon.Position;
 
 /**
  * Class for implementing methods in the Game interface. provides methods to interact with the
@@ -97,6 +100,19 @@ public class GameImpl implements Game {
   }
 
   @Override
+  public String move(int row, int col) {
+    int clickId = dungeon.getGrid()[row][col].getId();
+    String direction = dungeon.getMove(clickId);
+
+    if (direction.isEmpty()) {
+      return "Can't go there";
+    } else {
+      this.move(direction);
+    }
+    return "";
+  }
+
+  @Override
   public String dumpDungeon() {
     return dungeon.toString();
   }
@@ -119,6 +135,11 @@ public class GameImpl implements Game {
   @Override
   public boolean isEnd() {
     return dungeon.checkIfPlayerAtEndLocation() && dungeon.checkPlayerState();
+  }
+
+  @Override
+  public boolean isEndState() {
+    return dungeon.checkIfPlayerAtEndLocation() || !dungeon.checkPlayerState();
   }
 
   @Override
@@ -200,5 +221,40 @@ public class GameImpl implements Game {
   @Override
   public String getMonsterSmell() {
     return this.dungeon.getSmellAtPlayerLocation();
+  }
+
+  @Override
+  public Location[][] getGrid() {
+    return dungeon.getGrid();
+  }
+
+  @Override
+  public Position getPlayerPosition() {
+    return dungeon.getPlayerGridLocation();
+  }
+
+  @Override
+  public int getPlayerLocationId() {
+    return dungeon.getPlayerLocation();
+  }
+
+  @Override
+  public Map<String, Integer> getPlayerTreasureCount() {
+    return dungeon.getPlayerTreasureCount();
+  }
+
+  @Override
+  public int getPlayerWeaponCount() {
+    return dungeon.getPlayerWeaponCount();
+  }
+
+  @Override
+  public boolean[][] getVisited() {
+    return dungeon.getVisited();
+  }
+
+  @Override
+  public String getName() {
+    return dungeon.getPlayerName();
   }
 }

@@ -62,7 +62,7 @@ User can play the game using command line or graphical interface.
   - Numbers (1-5) - distance as measured by number of caves.
 - Q - Quit the game.
 
-####Graphical interface controls:
+#### Graphical interface controls:
 - Use arrow keys to move the player.
 - Use "S" + arrow key to shoot arrow in a particular direction.
 - Use "T" for picking up treasure.
